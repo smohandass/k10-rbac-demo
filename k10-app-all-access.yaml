@@ -1,0 +1,75 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: "2023-04-18T21:26:46Z"
+  name: k10-app-all-access
+  resourceVersion: "2147251"
+  uid: f0ac24ec-8846-4cd1-8ce9-1408745baa1f
+rules:
+- apiGroups:
+  - actions.kio.kasten.io
+  resources:
+  - backupactions
+  - backupactions/details
+  - cancelactions
+  - exportactions
+  - exportactions/details
+  - importactions
+  - importactions/details
+  - reportactions
+  - reportactions/details
+  - restoreactions
+  - restoreactions/details
+  - retireactions
+  - retireactions/details
+  - runactions
+  - runactions/details
+  - upgradeactions
+  verbs:
+  - '*'
+- apiGroups:
+  - apps.kio.kasten.io
+  resources:
+  - applications
+  - applications/details
+  - restorepointcontents
+  - restorepointcontents/details
+  - restorepoints
+  - restorepoints/details
+  verbs:
+  - '*'
+- apiGroups:
+  - config.kio.kasten.io
+  resources:
+  - blueprintbindings
+  - policies
+  - profiles
+  - policypresets
+  - transformsets
+  verbs:
+  - '*'
+- apiGroups:
+  - reporting.kio.kasten.io
+  resources:
+  - reports
+  verbs:
+  - '*'
+- apiGroups:
+  - cr.kanister.io
+  resources:
+  - actionsets
+  - blueprints
+  - profiles
+  verbs:
+  - '*'
+- apiGroups:
+  - ""
+  - apps
+  resources:
+  - namespaces
+  - deployments
+  - pods
+  verbs:
+  - get
+  - list
+  - watch

@@ -1,0 +1,82 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: k10-app-restricted-access 
+rules:
+- apiGroups:
+  - actions.kio.kasten.io
+  resources:
+  - backupactions
+  - backupactions/details
+  - cancelactions
+  - exportactions
+  - exportactions/details
+  - importactions
+  - importactions/details
+  - reportactions
+  - reportactions/details
+  - restoreactions
+  - restoreactions/details
+  - retireactions
+  - retireactions/details
+  - runactions
+  - runactions/details
+  - upgradeactions
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apps.kio.kasten.io
+  resources:
+  - applications
+  - applications/details
+  - restorepointcontents
+  - restorepointcontents/details
+  - restorepoints
+  - restorepoints/details
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - config.kio.kasten.io
+  resources:
+  - blueprintbindings
+  - policies
+  - profiles
+  - policypresets
+  - transformsets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - reporting.kio.kasten.io
+  resources:
+  - reports
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - cr.kanister.io
+  resources:
+  - actionsets
+  - blueprints
+  - profiles
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  - apps
+  resources:
+  - namespaces
+  - deployments
+  - pods
+  verbs:
+  - get
+  - list
+  - watch
